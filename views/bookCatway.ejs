@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>réserver catway n°<%=catway.catwayNumber%></h2>
+      <form method="post" action="/catways/addBooking ">
+        <div class="form-group">
+          <input
+            type="number"
+            name="catwayNumber"
+            value="<%=catway.catwayNumber%>"
+            hidden
+          />
+        </div>
+        <div class="form-group">
+          <label for="clientName">nom du client</label>
+          <input type="text" name="clientName" />
+        </div>
+        <div class="form-group">
+          <label for="boatName">nom du bateau :</label>
+          <input type="text" name="boatName" />
+        </div>
+        <div class="form-group">
+          <label for="checkIn">début location :</label>
+          <input type="date" name="checkIn" />
+        </div>
+        <div class="form-group">
+          <label for="checkOut">fin location :</label>
+          <input type="date" name="checkOut" />
+        </div>
+        <input type="submit" value="submit" class="submit-btn" />
+      </form>
+    </div>
+  </body>
+</html>

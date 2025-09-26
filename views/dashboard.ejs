@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <nav>
+      <a href="/dashboard">liste utilisateurs</a>
+      <a href="/catwaysList">liste catway</a>
+      <a href="/bookingsList">liste réservations</a>
+    </nav>
+
+    <a href="/add_user"
+      ><button class="btn">+ ajouter un utilisateur</button></a
+    >
+
+    <div class="table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col">Nom</th>
+            <th class="col">Prénom</th>
+            <th class="col">Email</th>
+            <th class="col">actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%userList.forEach(user => {%>
+          <tr>
+            <td class="col"><%=user.name%></td>
+            <td class="col"><%=user.firstname%></td>
+            <td class="col"><%=user.email%></td>
+            <td>
+              <div class="btn-div">
+                <form action="/users/deleteUser/<%=user.id%>" method="post">
+                  <input class="table-btn" type="submit" value="supprimer" />
+                </form>
+
+                <a href="/update_user/<%=user.id%>">
+                  <button class="table-btn">modifier</button>
+                </a>
+              </div>
+            </td>
+          </tr>
+          <%})%>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

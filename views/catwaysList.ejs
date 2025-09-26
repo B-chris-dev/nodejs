@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <nav>
+      <a href="/dashboard">liste utilisateurs</a>
+      <a href="/catwaysList">liste catway</a>
+      <a href="/bookingsList">liste réservations</a>
+    </nav>
+
+    <a href="/addCatway"><button class="btn">+ ajouter un catway</button></a>
+
+    <div class="table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col">numéro</th>
+            <th class="col">type</th>
+            <th class="col">état</th>
+            <th class="col">action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%catwaysList.forEach(catway => {%>
+          <tr>
+            <td class="col"><%=catway.catwayNumber%></td>
+            <td class="col"><%=catway.type%></td>
+            <td class="col"><%=catway.catwayState%></td>
+            <td>
+              <div class="btn-div">
+                <form
+                  action="/catways/deleteCatway/<%=catway.id%>"
+                  method="post"
+                >
+                  <input class="table-btn" type="submit" value="supprimer" />
+                </form>
+
+                <a href="/catwayDetails/<%=catway.id%>"
+                  ><button class="table-btn">details</button></a
+                >
+              </div>
+            </td>
+          </tr>
+          <%})%>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

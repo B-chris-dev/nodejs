@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>ajouter un utilisateur</h2>
+      <form method="post" action="/users/addUser">
+        <div class="form-group">
+          <label for="name">nom :</label>
+          <input type="text" name="name" />
+        </div>
+        <div class="form-group">
+          <label for="firstname">prénom :</label>
+          <input type="text" name="firstname" />
+        </div>
+        <div class="form-group">
+          <label for="email">email :</label>
+          <input type="email" name="email" />
+        </div>
+        <div class="form-group">
+          <label for="password">mot de passe :</label>
+          <input type="password" name="password" />
+        </div>
+
+        <input type="submit" value="submit" class="submit-btn" />
+      </form>
+    </div>
+  </body>
+</html>

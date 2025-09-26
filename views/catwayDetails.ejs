@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div class="details-container">
+      <h2>détail du catway numero : <%=catway.catwayNumber%></h2>
+      <p>numéro de catway : <%=catway.catwayNumber%></p>
+      <p>type : <%=catway.type%></p>
+      <p>état : <%=catway.catwayState%></p>
+    </div>
+    <div class="btn-container">
+      <a href="/updateCatway/<%=catway.id%>"
+        ><button class="btn">modifier état</button></a
+      >
+      <a href="/bookCatway/<%=catway.id%>"
+        ><button class="btn">louer</button></a
+      >
+    </div>
+  </body>
+</html>

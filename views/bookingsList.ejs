@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <nav>
+      <a href="/dashboard">liste utilisateurs</a>
+      <a href="/catwaysList">liste catway</a>
+      <a href="/bookingsList">liste réservations</a>
+    </nav>
+
+    <div class="table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col">numéro catway</th>
+            <th class="col">nom client</th>
+            <th class="col">nom bateau</th>
+            <th class="col">action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%bookingsList.forEach(booking => {%>
+          <tr>
+            <td class="col"><%=booking.catwayNumber%></td>
+            <td class="col"><%=booking.clientName%></td>
+            <td class="col"><%=booking.boatName%></td>
+            <td class="col">
+              <div class="btn-div">
+                <form
+                  action="/catways/deleteBooking/<%=booking.id%>"
+                  method="post"
+                >
+                  <input class="table-btn" type="submit" value="supprimer" />
+                </form>
+                <a href="/bookingDetails/<%=booking.id%>"
+                  ><button class="table-btn">détails</button></a
+                >
+              </div>
+            </td>
+          </tr>
+          <%})%>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

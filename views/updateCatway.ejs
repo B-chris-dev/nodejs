@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>modifier état du catway</h2>
+      <form method="post" action="/catways/update/:id">
+        <div class="form-group">
+          <label for="type">état :</label>
+          <textarea name="catwayState"></textarea>
+        </div>
+        <div class="form-group">
+          <input
+            type="number"
+            name="catwayNumber"
+            value="<%=catway.catwayNumber%>"
+            hidden
+          />
+        </div>
+        <div>
+          <input type="text" name="id" value="<%=catway.id%>" hidden />
+        </div>
+        <input type="submit" value="submit" class="submit-btn" />
+      </form>
+    </div>
+  </body>
+</html>

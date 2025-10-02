@@ -55,4 +55,9 @@ app.use(function (err, req, res, next) {
   });
 });
 
+const swaggerUI = require("swagger-ui-express");
+const swaggerDocument = require("./swagger-output.json");
+
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+
 module.exports = app;

@@ -5,9 +5,12 @@
   "scripts": {
     "start": "env-cmd -f ./env/.env nodemon ./bin/www",
     "dev": "env-cmd -f ./env/.env.dev nodemon ./bin/www",
-    "prod": "env-cmd -f ./env/.env.prod nodemon ./bin/www"
+    "prod": "env-cmd -f ./env/.env.prod nodemon ./bin/www",
+    "test": "mocha",
+    "swagger-autogen": "node ./swagger.js"
   },
   "dependencies": {
+    "-": "^0.0.1",
     "bcrypt": "^6.0.0",
     "body-parser": "^2.2.0",
     "boostrap": "^2.0.0",
@@ -21,9 +24,12 @@
     "mongodb": "^6.19.0",
     "mongoose": "^8.18.1",
     "morgan": "~1.9.1",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
-    "env-cmd": "^11.0.0"
+    "env-cmd": "^11.0.0",
+    "mocha": "^11.7.2"
   }
 }

@@ -8,10 +8,25 @@
   "host": "localhost:8080",
   "basePath": "/",
   "schemes": ["http"],
+  "tags": [
+    {
+      "name": "users",
+      "description": "tout ce qui concerne les utilisateurs"
+    },
+    {
+      "name": "catways",
+      "description": "tout ce qui concerne les catways"
+    },
+    {
+      "name": "bookings",
+      "description": "tout ce qui concerne les réservations"
+    }
+  ],
   "paths": {
     "/": {
       "get": {
         "description": "page de login",
+        "tags": ["users"],
         "responses": {
           "default": {
             "description": ""
@@ -22,6 +37,7 @@
     "/dashboard": {
       "get": {
         "description": "liste des utilisateurs",
+        "tags": ["users"],
         "responses": {
           "400": {
             "description": "Bad Request"
@@ -32,6 +48,7 @@
     "/add_user": {
       "get": {
         "description": "ajouter utilisateur",
+        "tags": ["users"],
         "responses": {
           "default": {
             "description": ""
@@ -42,6 +59,7 @@
     "/update_user/{id}": {
       "get": {
         "description": "modifier utilisateur",
+        "tags": ["users"],
         "parameters": [
           {
             "name": "id",
@@ -60,6 +78,7 @@
     "/catwaysList": {
       "get": {
         "description": "liste des catways",
+        "tags": ["catways"],
         "responses": {
           "400": {
             "description": "Bad Request"
@@ -70,6 +89,7 @@
     "/addCatway": {
       "get": {
         "description": "ajouter un catway",
+        "tags": ["catways"],
         "responses": {
           "default": {
             "description": ""
@@ -80,6 +100,7 @@
     "/updateCatway/{id}": {
       "get": {
         "description": "modifier un catway",
+        "tags": ["catways"],
         "parameters": [
           {
             "name": "id",
@@ -98,6 +119,7 @@
     "/bookCatway/{id}": {
       "get": {
         "description": "reserver un catway",
+        "tags": ["bookings"],
         "parameters": [
           {
             "name": "id",
@@ -116,6 +138,7 @@
     "/bookingsList": {
       "get": {
         "description": "liste des reservations",
+        "tags": ["bookings"],
         "responses": {
           "400": {
             "description": "Bad Request"
@@ -126,6 +149,7 @@
     "/bookingDetails/{id}": {
       "get": {
         "description": "détail d'une réservation",
+        "tags": ["bookings"],
         "parameters": [
           {
             "name": "id",
@@ -144,6 +168,7 @@
     "/catwayDetails/{id}": {
       "get": {
         "description": "détails d'un catway",
+        "tags": ["catways"],
         "parameters": [
           {
             "name": "id",
@@ -162,6 +187,7 @@
     "/users/addUser": {
       "put": {
         "description": "ajouter un utilisateur",
+        "tags": ["users"],
         "parameters": [
           {
             "name": "body",
@@ -198,6 +224,7 @@
     "/users/updateUser/{id}": {
       "patch": {
         "description": "mofifier un utilisateur",
+        "tags": ["users"],
         "parameters": [
           {
             "name": "id",
@@ -246,6 +273,7 @@
     "/users/deleteUser/{id}": {
       "delete": {
         "description": "supprimer un utilisateur",
+        "tags": ["users"],
         "parameters": [
           {
             "name": "id",
@@ -267,6 +295,7 @@
     "/users/authenticate": {
       "post": {
         "description": "authentification",
+        "tags": ["users"],
         "parameters": [
           {
             "name": "body",
@@ -300,6 +329,7 @@
     "/catways/addCatway": {
       "put": {
         "description": "ajouter un catway",
+        "tags": ["catways"],
         "parameters": [
           {
             "name": "body",
@@ -333,6 +363,7 @@
     "/catways/update/{id}": {
       "patch": {
         "description": "modifier un catway",
+        "tags": ["catways"],
         "parameters": [
           {
             "name": "id",
@@ -378,6 +409,7 @@
     "/catways/deleteCatway/{id}": {
       "delete": {
         "description": "supprimer un catway",
+        "tags": ["catways"],
         "parameters": [
           {
             "name": "id",
@@ -399,6 +431,7 @@
     "/catways/addBooking": {
       "put": {
         "description": "réserver un catway",
+        "tags": ["bookings"],
         "parameters": [
           {
             "name": "body",
@@ -438,6 +471,7 @@
     "/catways/deleteBooking/{id}": {
       "delete": {
         "description": "supprimer une réservation",
+        "tags": ["bookings"],
         "parameters": [
           {
             "name": "id",

@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/login", indexRouter);
+app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/catways", catwaysRouter);
 // catch 404 and forward to error handler

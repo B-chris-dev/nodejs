@@ -8,7 +8,7 @@ const Catway = require("../models/catways");
 const Bookings = require("../models/bookings");
 
 /* login page. */
-router.get("/", async (req, res) => {
+router.get("/login", async (req, res) => {
   res.render("index", {
     title: "Login",
   });

@@ -5,7 +5,7 @@
     "description": "api de gestion de location de catways",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "nodejs-three-rose.vercel.app",
   "basePath": "/",
   "schemes": ["http"],
   "tags": [

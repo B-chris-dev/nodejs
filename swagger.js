@@ -5,8 +5,8 @@ const doc = {
     title: "my API",
     description: "api de gestion de location de catways",
   },
-  host: "localhost:8080",
-  schemes: ["http"],
+  host: "nodejs-three-rose.vercel.app",
+  schemes: ["http, https"],
 };
 
 const outputFile = "./swagger-output.json";

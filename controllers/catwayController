@@ -1,0 +1,87 @@
+const catwayService = require("../services/catways");
+const Catway = require("../models/catways");
+
+// ajouter un catway
+exports.addCatway = async (req, res, next) => {
+  const temp = {
+    catwayNumber: req.body.catwayNumber,
+    type: req.body.type,
+    catwayState: req.body.catwayState,
+  };
+
+  try {
+    await catwayService.add(temp);
+
+    return res.redirect("/catwaysList");
+  } catch (error) {
+    return res.status(501).json(error);
+  }
+};
+
+//modifier un catway
+exports.updateCatway = async (req, res, next) => {
+  const id = req.body.id;
+  const temp = {
+    catwayNumber: req.body.catwayNumber,
+    type: req.body.type,
+    catwayState: req.body.catwayState,
+  };
+
+  try {
+    let catway = await Catway.findOne({ _id: id });
+
+    if (catway) {
+      catwayService.update(id, temp);
+      await catwayService.save(catway);
+      return res.redirect("/catwaysList");
+    }
+
+    return res.status(404).json("catway_not_found");
+  } catch (error) {
+    return res.status(501).json(error);
+  }
+};
+
+// supprimer un catway
+exports.deleteCatway = async (req, res, next) => {
+  const id = req.params.id;
+
+  try {
+    await catwayService.delete({ _id: id });
+    return res.redirect("back");
+  } catch (error) {
+    return res.status(501).json(error);
+  }
+};
+
+//réserver un catway
+exports.addbooking = async (req, res, next) => {
+  const temp = {
+    catwayNumber: req.body.catwayNumber,
+    clientName: req.body.clientName,
+    boatName: req.body.boatName,
+    checkIn: req.body.checkIn,
+    checkOut: req.body.checkOut,
+  };
+
+  try {
+    await catwayService.addbooking(temp);
+
+    return res.redirect("/bookingsList");
+  } catch (error) {
+    return res.status(501).json(error);
+  }
+};
+
+// supprimer une réservation
+exports.deleteBooking = async (req, res, next) => {
+  const id = req.params.id;
+
+  try {
+    await catwayService.deleteBooking({ _id: id });
+
+    return res.redirect("back");
+  } catch (error) {
+    return res.status(501).json(error);
+  }
+};
